@@ -643,11 +643,8 @@ class SimpleMail
             '<'  => '[',
             '>'  => ']',
         );
-        $filtered = filter_var(
-            $name,
-            FILTER_SANITIZE_STRING,
-            FILTER_FLAG_NO_ENCODE_QUOTES
-        );
+        $filtered = htmlspecialchars($name);
+
         return trim(strtr($filtered, $rule));
     }
 
